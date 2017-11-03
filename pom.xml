@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>test-dependencies-project</artifactId>
+    <groupId>fi.kaiinkinen</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    
+    <build>
+      <plugins>
+	<plugin>
+          <groupId>net.nicoulaj.maven.plugins</groupId>
+          <artifactId>checksum-maven-plugin</artifactId>
+          <version>1.6</version>
+	  <!--
+	      <version>1.6.1-SNAPSHOT</version>
+	  -->
+	  <executions>
+            <execution>
+              <goals>
+		<goal>test</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <xmlSummary>true</xmlSummary>
+            <xmlSummaryFile>dependencies-checksums.xml</xmlSummaryFile>
+            <csvSummary>true</csvSummary>
+            <csvSummaryFile>dependencies-checksums.csv</csvSummaryFile>
+          </configuration>
+	</plugin>
+      </plugins>
+    </build>
+    
+    <dependencies>
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <scope>test</scope>
+          <version>4.12</version>
+        </dependency>
+    </dependencies>
+</project>
